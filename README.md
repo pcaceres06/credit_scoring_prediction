@@ -32,9 +32,48 @@ se realiza Feature Engineering para discretizar variables numéricas de tal form
 
 En el dataset suministrado se encuentra que el 70% de las solicitudes son clasificados como "Cliente bueno" y el 30% como "Cliente malo"
 
-![Alt text](image.png)
+![Alt text](/imagenes/propbuenosymalos.png)
 
-![Alt text](.\imagenes\distri_plazo.png)
+![Alt text](/imagenes/distri_plazo.png)
+
+![Alt text](/imagenes/distri_edad.png)
+
+![Alt text](/imagenes/distri_monto.png)
+
+![Alt text](/imagenes/tasamalos_acccheckst.png)
+
+![Alt text](/imagenes/tasamalos_credit_hist.png)
+
+![Alt text](/imagenes/tasamalos_extranjero.png)
+
+![Alt text](/imagenes/tasamalos_otrasdeudas.png)
+
+![Alt text](/imagenes/tasamalos_propiedad.png)
+
+![Alt text](/imagenes/tasamalos_purpose.png)
+
+![Alt text](/imagenes/tasamalos_savings.png)
+
+![Alt text](/imagenes/tasamalos_tiempoempresa.png)
+
+![Alt text](/imagenes/tasamalos_tiemporesidencia.png)
+
+
+Con base en el análisis exploratorio se seleccionaron la siguientes variables para la creación del modelo
+- account_check_status
+- credit_history
+- purpose
+- savings
+- present_emp_since
+- other_debtors*
+- property*
+- other_installments_plans*
+- housing*
+- credit_this_bank
+- foreign_worker
+- rango_edad*
+- rango_plazo
+- rango_valor_credito*
 
 ## Model Training
 
