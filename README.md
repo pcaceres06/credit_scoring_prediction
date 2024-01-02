@@ -34,7 +34,7 @@ En el dataset suministrado se encuentra que el 70% de las solicitudes son clasif
 
 ![Alt text](image.png)
 
-![Alt text](distri_plazo.png)
+![Alt text](\imagenes\distri_plazo.png)
 
 ## Model Training
 
