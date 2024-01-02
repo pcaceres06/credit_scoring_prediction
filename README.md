@@ -32,6 +32,9 @@ se realiza Feature Engineering para discretizar variables numéricas de tal form
 
 En el dataset suministrado se encuentra que el 70% de las solicitudes son clasificada como "Cliente bueno" y el 30% como "Cliente malo"
 
+![Alt text](image.png)
+
+
 
 ## Model Training
 
