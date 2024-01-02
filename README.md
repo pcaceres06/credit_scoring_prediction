@@ -1,18 +1,20 @@
-# Bank Customer Scoring Analysis
+# Analisis y modelamiento de Scoring de clientes de Banco
 
-## Overview
+## Descripcion general
 
-This repository contains the analysis of a dataset related to scoring bank customers for credit risk assessment. The goal is to develop and train machine learning models to predict the creditworthiness of customers.
+Este repositorio contiene el análisis de un dataset relacionado con el scoring de los clientes del banco XXX para evaluación del riesgo crediticio.   El objetivo es desarrollar y entrenar modelos de machine learning para predecir la solvencia de los clientes.
 
-## Dataset
+## Fuentes de datos
 
-### Description
+### Descripción
 
-The dataset consists of [provide brief description of dataset]. It includes [list key features and target variable].
+The dataset contiene información de historial crediticio y caracteristicas de los clientes con la cual se pretende realizar la predicción de si el cliente tiene solvencia o no para hacer crédito.  Incluye caracteristicas como edad, sexo, tiempo en empresa actual, tiempo de residencia, extranjero, tiene propiedad, ingresos, ahorros, plazo de credito. 
+
+La variable a predecir es denominada como DEFAULT la cual tiene como valores 0 y 1 que indican si el cliente es bueno o malo.
 
 ### Source
 
-The dataset was obtained from [provide source information].
+El archivo de datos fue suministrado por el banco XXXXX.
 
 ## Data Exploration
 
