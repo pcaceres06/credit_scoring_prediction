@@ -1,10 +1,14 @@
 # Analisis y modelamiento de Scoring de clientes de Banco
 
+## Audiencia
+
+Participantes de BootCamp "Data Science" del ProfeAlejo
+
 ## Descripcion general
 
 Este repositorio contiene el análisis de un dataset relacionado con el scoring de los clientes del banco XXX para evaluación del riesgo crediticio.   El objetivo es desarrollar y entrenar modelos de machine learning para predecir la solvencia de los clientes.
 
-## Fuentes de datos
+## Dataset
 
 ### Descripción
 
@@ -12,21 +16,22 @@ The dataset contiene información de historial crediticio y caracteristicas de l
 
 La variable a predecir es denominada como DEFAULT la cual tiene como valores 0 y 1 que indican si el cliente es bueno o malo.
 
-### Source
+### Fuente de datos
 
 El archivo de datos fue suministrado por el banco XXXXX.
 
-## Data Exploration
+## Preprocesamiento de los datos
 
-Explore the dataset to understand its structure, features, and relationships. Perform summary statistics, visualize distributions, and identify any patterns or anomalies.
-
-## Data Preprocessing
-
-Clean and preprocess the data to handle missing values, outliers, and any other issues. Convert categorical variables, scale numerical features, and perform any necessary transformations.
+Se realiza preprocesamiento de datos, manejo de valores faltantes.  Se realiza conversión de variables categorías a enteros (int64) aplicando mapeo entre el diccionario de datos y el dataset.
 
 ## Feature Engineering
 
-Create new features or transform existing ones to enhance the predictive power of the models. Feature selection may be performed to identify the most relevant variables.
+se realiza Feature Engineering para discretizar variables numéricas de tal forma que los valores estén clasificados en rangos lo cual facilita el entrenamiento de los modelos predictivos.
+
+## Exploración de los datos
+
+En el dataset suministrado se encuentra que el 70% de las solicitudes son clasificada como "Cliente bueno" y el 30% como "Cliente malo"
+
 
 ## Model Training
 
