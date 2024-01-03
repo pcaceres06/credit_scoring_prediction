@@ -4,7 +4,7 @@
 
 Participantes de BootCamp "Data Science" del ProfeAlejo
 
-## 3. Descripcion general
+## 2. Descripcion general
 
 Este repositorio contiene el análisis de un dataset relacionado con el scoring de los clientes del banco XXX para evaluación del riesgo crediticio.   El objetivo es desarrollar y entrenar modelos de machine learning para predecir la solvencia de los clientes.
 
@@ -12,7 +12,7 @@ Este repositorio contiene el análisis de un dataset relacionado con el scoring 
 
 ### Descripción
 
-The dataset contiene información de historial crediticio y caracteristicas de los clientes con la cual se pretende realizar la predicción de si el cliente tiene solvencia o no para hacer crédito.  Incluye caracteristicas como edad, sexo, tiempo en empresa actual, tiempo de residencia, extranjero, tiene propiedad, ingresos, ahorros, plazo de credito. 
+The dataset contiene información de historial crediticio y caracteristicas de los clientes con la cual se pretende realizar la predicción de si el cliente tiene solvencia o no para hacer crédito.  Incluye caracteristicas como edad, sexo, tiempo en empresa actual, tiempo de residencia, extranjero, tiene propiedad, ingresos, ahorros, monto del crédito, plazo de credito, deuda en otros bancos. 
 
 La variable a predecir es denominada como DEFAULT la cual tiene como valores 0 y 1 que indican si el cliente es bueno o malo.
 
@@ -26,7 +26,7 @@ Se realiza preprocesamiento de datos, manejo de valores faltantes.  Se realiza c
 
 ## 5. Feature Engineering
 
-se realiza Feature Engineering para discretizar variables numéricas de tal forma que los valores estén clasificados en rangos lo cual facilita el entrenamiento de los modelos predictivos.
+Se realiza Feature Engineering para discretizar variables numéricas de tal forma que los valores estén clasificados en rangos lo cual facilita el entrenamiento de los modelos predictivos.
 
 ## 6. Exploración de los datos
 
@@ -34,11 +34,17 @@ En el dataset suministrado se encuentra que el 70% de las solicitudes son clasif
 
 ![Alt text](/imagenes/propbuenosymalos.png)
 
+### Distribuciones de variables plazo, monto y edad
+
 ![Alt text](/imagenes/distri_plazo.png)
 
 ![Alt text](/imagenes/distri_edad.png)
 
 ![Alt text](/imagenes/distri_monto.png)
+
+### Proporción de buenos y malos por característica
+
+Para determinar que variables afectan el indicador de si el cliente es BUENO o MALO se generan las siguientes gráficas que comparan el indicador con cada variable para el dataset suministrado:
 
 ![Alt text](/imagenes/tasamalos_acccheckst.png)
 
@@ -58,8 +64,14 @@ En el dataset suministrado se encuentra que el 70% de las solicitudes son clasif
 
 ![Alt text](/imagenes/tasamalos_tiemporesidencia.png)
 
+### Análisis de correlaciones
 
-Con base en el análisis exploratorio se seleccionaron la siguientes variables para la creación del modelo
+![Alt text](/imagenes/correlaciones1.png)
+
+![Alt text](/imagenes/correlaciones2.png)
+
+Con base en el análisis exploratorio en principio se podrian utilizar las siguientes variables del modelo:
+
 - account_check_status
 - credit_history
 - purpose
@@ -75,15 +87,13 @@ Con base en el análisis exploratorio se seleccionaron la siguientes variables p
 - rango_plazo
 - rango_valor_credito*
 
+Durante la fase de entrenamiento se pueden encontrar variables que no segmentan la clasificación.
+
 ## 7. Model Training
 
-### Separación de datos de entrenamiento y datos de prueba
+### Ejecución de modelo base
 
-Se hace Split al dataset en sets de entrenamiento y pruebas para evaluar el performance de los modelos de machine learning.
-
-### Ejecución de modelos base
-
-Se ejecutaron varios algoritmos de clasificación como regresión logística, arboles de decisión, Random forest y regresión gausiana usando el dataset original para tener métricas bases con las se puedan comparar los posteriores ajustes a nivel de columnas e hiperparámetros.  Las métricas obtenidas fueron las siguientes:
+Se ejecutaron varios algoritmos de clasificación como regresión logística (RL), arboles de decisión (DT), Random forest (RF) y regresión gausiana (NB) usando el dataset original para tener métricas bases con las se puedan comparar los posteriores ajustes a nivel de columnas e hiperparámetros.  Las métricas obtenidas fueron las siguientes:
 
 ![Alt text](/imagenes/metricas_modelobase.png)
 
@@ -155,6 +165,31 @@ Se ejecutaron varios algoritmos de clasificación como regresión logística, ar
 </table>
 
 Aunque las resultados del Random Forest son ligeramente superiores al Naive Bayes, se observa que la diferencia no es muy grande; y teniendo en cuenta la complejidad de los modelos se decide tomar como modelo base el **Gausian Naive Bayes.**
+
+### Selección de variables
+
+Con base en el análisis exploratorio y técnicas como PCA y regresión LASSO se seleccionaron la siguientes variables para la creación del modelo
+
+- account_check_status
+- credit_history
+- purpose
+- savings
+- present_emp_since
+- other_debtors*
+- property*
+- other_installments_plans
+- housing*
+- credit_this_bank
+- foreign_worker
+- rango_edad*
+- rango_plazo
+- rango_valor_credito*
+
+(*) La variable por si sola no muestra un potencial para segmentar el nivel de default. Sin embargo, por conocimiento de negocio se decide utilizarla para la creación del modelo
+
+### Separación de datos de entrenamiento y datos de prueba
+
+Se hace Split al dataset en sets de entrenamiento y pruebas para evaluar el performance de los modelos de machine learning.
 
 ### Entrenamiento de Modelos
 
