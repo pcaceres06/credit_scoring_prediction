@@ -6,7 +6,7 @@ Participantes de BootCamp "Data Science" del ProfeAlejo
 
 ## 2. Descripcion general
 
-Este repositorio contiene el análisis de un dataset relacionado con el scoring de los clientes del banco XXX para evaluación del riesgo crediticio.   El objetivo es desarrollar y entrenar modelos de machine learning para predecir la solvencia de los clientes.
+Este repositorio contiene el análisis de un dataset relacionado con el scoring de los clientes del banco alemán para evaluación del riesgo crediticio.   El objetivo es desarrollar y entrenar modelos de machine learning para predecir la solvencia de los clientes.
 
 ## 3. Dataset
 
@@ -18,7 +18,7 @@ La variable a predecir es denominada como DEFAULT la cual tiene como valores 0 y
 
 ### Fuente de datos
 
-El archivo de datos fue suministrado por el banco XXXXX.
+El archivo de datos fue suministrado Profesor Dr. Hans Hofmann (Instituto de Estadística y Econometría Universidad de Hamburgo Departamento de Economía Parque Von Melle 5, 2000 Hamburgo 13)
 
 ## 4. Preprocesamiento de los datos
 
@@ -411,6 +411,7 @@ objetivo:
   </tbody>
 </table>
 
+De acuerdo a lo anterior las variables a utilizar para entrenamiento de modelo son:
 
 - account_check_status
 - credit_history
@@ -431,27 +432,119 @@ objetivo:
 
 ### Separación de datos de entrenamiento y datos de prueba
 
-Se hace Split al dataset en sets de entrenamiento y pruebas para evaluar el performance de los modelos de machine learning.
+Se hace Split al dataset en sets de entrenamiento y pruebas para evaluar el performance de los modelos de machine learning.  Se toma el 80% de los datos para el entrenamiento y el 20% para las pruebas del modelo.
 
 ### Entrenamiento de Modelos
 
-Train the selected models on the training data and tune hyperparameters for better performance.
+Se hizo entrenamiento usando los algoritmos:
+
+- Regresión Logística (RL)
+- Árboles de decisión (DT)
+- Random Forest (RF)
+- Naives Bayes (NB) 
+
+Se hizo optimización de los hiperparámetros utilizando búsqueda de grilla (Grid Search) combinando con validación cruzada para evitar el "OverFitting".
+
 
 ## 8. Evaluación de modelos
 
-Evaluate the trained models using the testing dataset. Metrics such as accuracy, precision, recall, and ROC-AUC can be used to assess the model's performance.
+Para evaluación de modelos se utilizaron las siguientes métricas:
+
+- ROC-AUC
+- Kolmogórov-Smirnov(KS)
+- Gini
+- F1-Score
 
 ## 9. Resultados
 
-Present the results of the analysis, including model performance metrics, important features, and any insights gained from the analysis.
+
+![Alt text](/imagenes/tasamalos_tiemporesidencia.png)
+
+<table id="T_566d8">
+  <thead>
+    <tr>
+      <th class="blank level0" >&nbsp;</th>
+      <th id="T_566d8_level0_col0" class="col_heading level0 col0" >Precision</th>
+      <th id="T_566d8_level0_col1" class="col_heading level0 col1" >Recall</th>
+      <th id="T_566d8_level0_col2" class="col_heading level0 col2" >F1-score</th>
+      <th id="T_566d8_level0_col3" class="col_heading level0 col3" >Accuracy</th>
+      <th id="T_566d8_level0_col4" class="col_heading level0 col4" >ROC-AUC</th>
+      <th id="T_566d8_level0_col5" class="col_heading level0 col5" >KS</th>
+      <th id="T_566d8_level0_col6" class="col_heading level0 col6" >Gini</th>
+    </tr>
+    <tr>
+      <th class="index_name level0" >Algoritmo</th>
+      <th class="blank col0" >&nbsp;</th>
+      <th class="blank col1" >&nbsp;</th>
+      <th class="blank col2" >&nbsp;</th>
+      <th class="blank col3" >&nbsp;</th>
+      <th class="blank col4" >&nbsp;</th>
+      <th class="blank col5" >&nbsp;</th>
+      <th class="blank col6" >&nbsp;</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th id="T_566d8_level0_row0" class="row_heading level0 row0" >RL</th>
+      <td id="T_566d8_row0_col0" class="data row0 col0" >0.585366</td>
+      <td id="T_566d8_row0_col1" class="data row0 col1" >0.400000</td>
+      <td id="T_566d8_row0_col2" class="data row0 col2" >0.475248</td>
+      <td id="T_566d8_row0_col3" class="data row0 col3" >0.735000</td>
+      <td id="T_566d8_row0_col4" class="data row0 col4" >0.639286</td>
+      <td id="T_566d8_row0_col5" class="data row0 col5" >0.278571</td>
+      <td id="T_566d8_row0_col6" class="data row0 col6" >0.278571</td>
+    </tr>
+    <tr>
+      <th id="T_566d8_level0_row1" class="row_heading level0 row1" >DT</th>
+      <td id="T_566d8_row1_col0" class="data row1 col0" >0.460317</td>
+      <td id="T_566d8_row1_col1" class="data row1 col1" >0.483333</td>
+      <td id="T_566d8_row1_col2" class="data row1 col2" >0.471545</td>
+      <td id="T_566d8_row1_col3" class="data row1 col3" >0.675000</td>
+      <td id="T_566d8_row1_col4" class="data row1 col4" >0.620238</td>
+      <td id="T_566d8_row1_col5" class="data row1 col5" >0.240476</td>
+      <td id="T_566d8_row1_col6" class="data row1 col6" >0.240476</td>
+    </tr>
+    <tr>
+      <th id="T_566d8_level0_row2" class="row_heading level0 row2" >RF</th>
+      <td id="T_566d8_row2_col0" class="data row2 col0" >0.606061</td>
+      <td id="T_566d8_row2_col1" class="data row2 col1" >0.333333</td>
+      <td id="T_566d8_row2_col2" class="data row2 col2" >0.430108</td>
+      <td id="T_566d8_row2_col3" class="data row2 col3" >0.735000</td>
+      <td id="T_566d8_row2_col4" class="data row2 col4" >0.620238</td>
+      <td id="T_566d8_row2_col5" class="data row2 col5" >0.240476</td>
+      <td id="T_566d8_row2_col6" class="data row2 col6" >0.240476</td>
+    </tr>
+    <tr>
+      <th id="T_566d8_level0_row3" class="row_heading level0 row3" >NB</th>
+      <td id="T_566d8_row3_col0" class="data row3 col0" >0.442857</td>
+      <td id="T_566d8_row3_col1" class="data row3 col1" >0.516667</td>
+      <td id="T_566d8_row3_col2" class="data row3 col2" >0.476923</td>
+      <td id="T_566d8_row3_col3" class="data row3 col3" >0.660000</td>
+      <td id="T_566d8_row3_col4" class="data row3 col4" >0.619048</td>
+      <td id="T_566d8_row3_col5" class="data row3 col5" >0.238095</td>
+      <td id="T_566d8_row3_col6" class="data row3 col6" >0.238095</td>
+    </tr>
+  </tbody>
+</table>
 
 ## 10. Conclusiones
 
-Summarize the findings and conclusions drawn from the analysis. Discuss the practical implications and potential use of the trained models for credit scoring in a real-world scenario.
+Luego de realizar el ejercicio de entrenar los modelos modificando el valor de sus hiperparámetros y comparando contra el modelo base. Para este caso, con los resultados obtenidos, se decide seleccionar el modelo creado con el algoritmo de Random Forest.
+
+Teniendo en cuenta que en este problema se desea disminuir la tasa de falsos negativos y que la variable objetivo se encuentra desbalanceada. Se da mayor importancia a las métricas
+de ROC-AUC, KS, Gini y F1-score
+
+Al comparar los resultados se observa que el Random Forest es el que mejor se desempeña en estas métricas.
+
+Al modelo seleccionado, se les hizo pruebas haciendo over-sampling y under-sampling para balancear los datos y determinar si había mejora en las métricas del modelo.  Sin embargo, los resultados no mostraron mejorar significativos. 
+
 
 ## 11. Dependencias
 
-List the dependencies required to run the analysis, including programming languages, libraries, and versions.
+Para replicar el ejercicio se deben importar las librerías listadas en el archivo requirements.txt.  Se sugiere ejecutar el siguiente comando:
+
+pip -r install requirements.txt
+
 
 ## 12. Uso
 
