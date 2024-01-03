@@ -77,17 +77,16 @@ Con base en el análisis exploratorio se seleccionaron la siguientes variables p
 
 ## 7. Model Training
 
-### Splitting the Data
+### Separación de datos de entrenamiento y datos de prueba
 
 Se hace Split al dataset en sets de entrenamiento y pruebas para evaluar el performance de los modelos de machine learning.
 
-### Model Selection
+### Ejecución de modelos base
 
-<style type="text/css">
-#T_df850_row2_col0, #T_df850_row2_col3, #T_df850_row2_col4, #T_df850_row2_col5, #T_df850_row2_col6, #T_df850_row3_col1, #T_df850_row3_col2 {
-  background-color: purple;
-}
-</style>
+Se ejecutaron varios algoritmos de clasificación como regresión logística, arboles de decisión, Random forest y regresión gausiana usando el dataset original para tener métricas bases con las se puedan comparar los posteriores ajustes a nivel de columnas e hiperparámetros.  Las métricas obtenidas fueron las siguientes:
+
+![Alt text](/imagenes/metricas_modelobase.png)
+
 <table id="T_df850">
   <thead>
     <tr>
@@ -155,32 +154,33 @@ Se hace Split al dataset en sets de entrenamiento y pruebas para evaluar el perf
   </tbody>
 </table>
 
+Aunque las resultados del Random Forest son ligeramente superiores al Naive Bayes, se observa que la diferencia no es muy grande; y teniendo en cuenta la complejidad de los modelos se decide tomar como modelo base el **Gausian Naive Bayes.**
 
-### Model Training
+### Entrenamiento de Modelos
 
 Train the selected models on the training data and tune hyperparameters for better performance.
 
-## 8. Model Evaluation
+## 8. Evaluación de modelos
 
 Evaluate the trained models using the testing dataset. Metrics such as accuracy, precision, recall, and ROC-AUC can be used to assess the model's performance.
 
-## 9. Results
+## 9. Resultados
 
 Present the results of the analysis, including model performance metrics, important features, and any insights gained from the analysis.
 
-## 10. Conclusion
+## 10. Conclusiones
 
 Summarize the findings and conclusions drawn from the analysis. Discuss the practical implications and potential use of the trained models for credit scoring in a real-world scenario.
 
-## 11. Dependencies
+## 11. Dependencias
 
 List the dependencies required to run the analysis, including programming languages, libraries, and versions.
 
-## 12. Usage
+## 12. Uso
 
 Provide instructions on how to reproduce the analysis, train the models, and make predictions on new data.
 
-## 13. License
+## 13. Licencia
 
 Specify the license under which this analysis is released.
 
